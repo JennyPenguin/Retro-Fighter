@@ -1,22 +1,22 @@
 /* Fonts */
 @font-face {
     font-family: "Pixel";
-    src: url('/Assets/Fonts/PressStart2P-Regular.ttf');
+    src: url('Fonts/PressStart2P-Regular.ttf');
 }
 
 @font-face {
     font-family: "Handwrite";
-    src: url('/Assets/Fonts/Dokdo-Regular.ttf');
+    src: url('Fonts/Dokdo-Regular.ttf');
 }
 
 @font-face {
     font-family: "Cute";
-    src: url('/Assets/Fonts/CuteFont-Regular.ttf');
+    src: url('Fonts/CuteFont-Regular.ttf');
 }
 
 @font-face {
     font-family: "Bold";
-    src: url("/Assets/Fonts/Righteous-Regular.ttf");
+    src: url('Fonts/Righteous-Regular.ttf');
 }
 
 * {
