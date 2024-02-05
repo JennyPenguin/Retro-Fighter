@@ -22,9 +22,9 @@ class Fighter extends Sprite {
                 x: this.position.x,
                 y: this.position.y
             },
-            offset,
-            width: 100,
-            height: 50,
+            offset: attackBox.offset,
+            width: attackBox.width,
+            height: attackBox.height,
         }
         this.color = color;
         this.health = 100;
@@ -42,7 +42,7 @@ class Fighter extends Sprite {
     update() {
         super.update();
         this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-        this.attackBox.position.y = this.position.y;
+        this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
         c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
 
@@ -60,9 +60,9 @@ class Fighter extends Sprite {
     attack() {
         this.switchSprite('attack1');
         this.isAttacking = true;
-        setTimeout(() => {
-            this.isAttacking = false;
-        }, 100)
+        // setTimeout(() => {
+        //     this.isAttacking = false;
+        // }, 1000)
     }
 
     switchSprite(sprite) {
