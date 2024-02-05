@@ -1,0 +1,56 @@
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- red container dev-->
+    <div style="position:relative; display: inline-block;">
+        <div style="position:absolute; display:flex; width: 100%; align-items: center; padding: 20px;">
+            <!-- player health -->
+            <div style="position: relative; height: 30px; width: 100%; display: flex; justify-content: flex-end;">
+                <div style="background-color : yellow; height: 30px; width: 100%;"></div>
+                <div id="playerHealth"
+                    style="position: absolute; background: blue; top: 0; bottom: 0; right: 0; width: 100%;"></div>
+            </div>
+            <!-- timer -->
+            <div id="timer"
+                style="background-color : red; height: 100px; width: 100px; flex-shrink: 0; display:flex; justify-content: center; align-items: center; color:white;">
+                10</div>
+            <!-- enemy health -->
+            <div style="position: relative; height: 30px; width: 100%;">
+                <div style="background-color : yellow; height: 30px;"></div>
+                <div id="enemyHealth"
+                    style="position: absolute; background: blue; top: 0; bottom: 0; right: 0; left:0;"></div>
+            </div>
+        </div>
+        <div id="displayText"
+            style="position: absolute; color: white; justify-content: center; align-items: center; width: 100%; height: 100%; display: none;">
+            Tie</div>
+        <canvas></canvas>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9yWuUrRYIXXfD8A7KiW2fG4DxvvjlCAE",
+            authDomain: "hippovoctupus.firebaseapp.com",
+            databaseURL: "https://hippovoctupus-default-rtdb.firebaseio.com",
+            projectId: "hippovoctupus",
+            storageBucket: "hippovoctupus.appspot.com",
+            messagingSenderId: "904658889295",
+            appId: "1:904658889295:web:57cd7c2b418ad44aaa583a"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="/Js/utili.js"></script>
+    <script src="/Js/data.js"></script>
+    <script src="Js/utili.js"></script>
+    <script src="Js/sprite.js"></script>
+    <script src="Js/fight.js"></script>
+    <script src="Js/game.js"></script>
+</body>

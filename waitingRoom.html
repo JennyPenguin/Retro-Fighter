@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waiting room</title>
+    <link rel="stylesheet" href="./style/structure.css" type="text/css">
+    <link rel="stylesheet" href="./style/style.css" type="text/css">
+</head>
+
+<body>
+    <div id="nameScreen">
+        <div class="inputField">
+            <label for="nameInput">Enter your name:</label>
+            <input type="text" id="nameInput" name="nameInput" placeholder="player1">
+            <button class="btn-primary" type="submit" onclick="getName()">Submit</button>
+        </div>
+    </div>
+    <div class="flexContainer flexColumn flexFull">
+        <h2 id="roomCode">Your room code is: </h2>
+        <div class="flexContainer flexColumn">
+            <p>Waiting for the other player to join</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9yWuUrRYIXXfD8A7KiW2fG4DxvvjlCAE",
+            authDomain: "hippovoctupus.firebaseapp.com",
+            databaseURL: "https://hippovoctupus-default-rtdb.firebaseio.com",
+            projectId: "hippovoctupus",
+            storageBucket: "hippovoctupus.appspot.com",
+            messagingSenderId: "904658889295",
+            appId: "1:904658889295:web:57cd7c2b418ad44aaa583a"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="/Js/utili.js"></script>
+    <script src="/Js/data.js"></script>
+</body>
+
+</html>

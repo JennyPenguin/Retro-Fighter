@@ -1,0 +1,139 @@
+/* Fonts */
+@font-face {
+    font-family: "Pixel";
+    src: url('/Assets/Fonts/PressStart2P-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Handwrite";
+    src: url('/Assets/Fonts/Dokdo-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Cute";
+    src: url('/Assets/Fonts/CuteFont-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url("/Assets/Fonts/Righteous-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    font-family: "Pixel";
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: pink;
+    overflow: hidden;
+}
+
+/* text */
+
+.title {
+    text-align: center;
+    line-height: 150%;
+    font-size: 400%;
+    color: #fff;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* buttons */
+
+.btn-primary {
+    margin: 5px 10px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border: 3px solid black;
+    transition: transform 0.2s linear;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    border-color: #fe619b;
+}
+
+/* Enter name screen */
+
+#nameScreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: pink;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.inputField input,
+.inputField label {
+    font-size: large;
+}
+
+.inputField input {
+    padding: 5px 10px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.inputField input[type="text"]:hover {
+    border: 2px solid #fe619b;
+}
+
+.inputField {
+    padding: 50px 40px;
+    border-radius: 10px;
+    background: #fde8ec;
+}
+
+::selection {
+    background: #ff1d92;
+    color: #fff;
+}
+
+/* waiting room */
+
+#roomCode {
+    padding: 50px 100px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #ff1d92;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.flexContainer p {
+    color: #000;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
