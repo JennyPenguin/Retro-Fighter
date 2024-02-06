@@ -40,13 +40,7 @@ body {
 
 /* text */
 
-.title {
-    text-align: center;
-    line-height: 150%;
-    font-size: 400%;
-    color: #fff;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-}
+
 
 
 /* buttons */
@@ -55,15 +49,15 @@ body {
     margin: 5px 10px;
     padding: 10px 20px;
     background: #fff;
-    color: #000;
+    color: #fe619b;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-    border: 3px solid black;
+    border: 3px solid #fe619b;
     transition: transform 0.2s linear;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    border-color: #fe619b;
+    border-color: #ff2e7b;
 }
 
 /* Enter name screen */
@@ -92,7 +86,7 @@ body {
 }
 
 .inputField input[type="text"]:hover {
-    border: 2px solid #fe619b;
+    border: 2px solid #ff2e7b;
 }
 
 .inputField {
@@ -102,7 +96,7 @@ body {
 }
 
 ::selection {
-    background: #ff1d92;
+    background: #ff2e7b;
     color: #fff;
 }
 
@@ -116,7 +110,7 @@ body {
 
 .loader {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #ff1d92;
+    border-top: 16px solid #ff2e7b;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -136,4 +130,38 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* Background */
+.HvOBg {
+    /* backdrop-filter: opacity(10%); */
+    background: url("../Assets/Background\ HvO.png");
+    background-position: 50% 0%;
+    background-repeat: repeat;
+    animation: scroll 8s linear infinite backwards;
+}
+
+@keyframes scroll {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 50% 118.5%;
+    }
+}
+
+.title {
+    text-align: center;
+    line-height: 150%;
+    font-size: 400%;
+    color: #fff;
+    text-shadow: 7px 7px 0 #ffe5f5;
+}
+
+.banner {
+    background: #fe619b;
+    padding: 30px 50px;
+    border-radius: 75px;
+    border: 10px solid #fff;
 }
