@@ -65,6 +65,11 @@ class Fighter extends Sprite {
         // }, 1000)
     }
 
+    takeHit() {
+        this.switchSprite('takeHit');
+        this.health -= 5;
+    }
+
     switchSprite(sprite) {
         // if attacking and not finished playing, don't let other animations play
         if (this.image === this.sprites.attack1.image &&
@@ -103,6 +108,13 @@ class Fighter extends Sprite {
                     this.frameCurrent = 0;
                     this.image = this.sprites.attack1.image;
                     this.framesMax = this.sprites.attack1.framesMax;
+                }
+                break;
+            case 'takeHit':
+                if (this.image !== this.sprites.takeHit.image) {
+                    this.frameCurrent = 0;
+                    this.image = this.sprites.takeHit.image;
+                    this.framesMax = this.sprites.takeHit.framesMax;
                 }
                 break;
         }

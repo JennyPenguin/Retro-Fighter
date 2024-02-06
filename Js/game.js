@@ -64,6 +64,9 @@ const player = new Fighter({
         attack1: {
             imageSrc: './Assets/samuraiMack/samuraiMack/Attack1.png',
             framesMax: 6
+        },
+        takeHit: {
+            imageSrc: '.Assets/samuraiMack/samuraiMack/Take hit.png'
         }
     },
     attackBox: {
@@ -115,6 +118,10 @@ const enemy = new Fighter({
         attack1: {
             imageSrc: './Assets/kenjiEnemy/Attack1.png',
             framesMax: 4
+        },
+        takeHit: {
+            imageSrc: '.Assets/kenjiEnemy/Take hit.png',
+            framesMax: 3
         }
     },
     attackBox: {
@@ -189,13 +196,17 @@ function animate() {
         enemy.switchSprite('fall');
     }
 
-    // detect for collision
+    // detect for collision & enemy gets hit
     if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.framesCurrent === 4) {
-        enemy.health -= 5;
+
+        enemy.takeHit();
+
+        // enemy.health -= 5;
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
         player.isAttacking = false;
     }
 
+    // if a player misses
     if (player.isAttacking && player.frameCurrent === 4) {
         player.isAttacking = false;
     }
@@ -248,6 +259,7 @@ window.addEventListener('keydown', (event) => {
             enemy.attack();
             break
     }
+    // animate();
 })
 
 
