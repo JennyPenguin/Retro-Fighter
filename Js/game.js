@@ -198,7 +198,7 @@ function animate() {
 
     // detect for collision & enemy gets hit
     if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.framesCurrent === 4) {
-
+        console.log('got hit');
         enemy.takeHit();
 
         // enemy.health -= 5;

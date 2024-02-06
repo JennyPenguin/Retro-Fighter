@@ -143,11 +143,11 @@ body {
 
 @keyframes scroll {
     0% {
-        background-position: 50% 0%;
+        background-position: 50% 0;
     }
 
     100% {
-        background-position: 50% 118.5%;
+        background-position: 50% 1200px;
     }
 }
 
