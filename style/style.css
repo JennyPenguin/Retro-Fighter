@@ -138,7 +138,7 @@ body {
     background: url("../Assets/Background\ HvO.png");
     background-position: 50% 0%;
     background-repeat: repeat;
-    animation: scroll 8s linear infinite backwards;
+    animation: scroll 12s linear infinite backwards;
 }
 
 @keyframes scroll {
