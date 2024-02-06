@@ -66,7 +66,7 @@ const player = new Fighter({
             framesMax: 6
         },
         takeHit: {
-            imageSrc: '.Assets/samuraiMack/samuraiMack/Take hit.png'
+            imageSrc: './Assets/samuraiMack/samuraiMack/Take Hit.png'
         }
     },
     attackBox: {
@@ -120,7 +120,7 @@ const enemy = new Fighter({
             framesMax: 4
         },
         takeHit: {
-            imageSrc: '.Assets/kenjiEnemy/Take hit.png',
+            imageSrc: './Assets/kenjiEnemy/Take hit.png',
             framesMax: 3
         }
     },
@@ -197,8 +197,8 @@ function animate() {
     }
 
     // detect for collision & enemy gets hit
-    if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.framesCurrent === 4) {
-        console.log('got hit');
+    if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 4) {
+        // console.log('got hit');
         enemy.takeHit();
 
         // enemy.health -= 5;
@@ -211,7 +211,7 @@ function animate() {
         player.isAttacking = false;
     }
 
-    if (rectangularCollision({ rectangle1: enemy, rectangle2: player }) && enemy.isAttacking && enemy.framesCurrent === 2) {
+    if (rectangularCollision({ rectangle1: enemy, rectangle2: player }) && enemy.isAttacking && enemy.frameCurrent === 2) {
         player.health -= 5;
         document.querySelector('#playerHealth').style.width = player.health + '%';
         enemy.isAttacking = false;
@@ -253,9 +253,11 @@ window.addEventListener('keydown', (event) => {
             enemy.velocity.y = -20;
             break
         case 's':
+            // console.log('got hit');
             player.attack();
             break
         case 'ArrowDown':
+            // console.log('got hit');
             enemy.attack();
             break
     }

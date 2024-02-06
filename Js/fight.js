@@ -58,6 +58,7 @@ class Fighter extends Sprite {
     }
 
     attack() {
+        // console.log('got hit');
         this.switchSprite('attack1');
         this.isAttacking = true;
         // setTimeout(() => {
@@ -66,6 +67,7 @@ class Fighter extends Sprite {
     }
 
     takeHit() {
+        console.log('got hit');
         this.switchSprite('takeHit');
         this.health -= 5;
     }
