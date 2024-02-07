@@ -9,7 +9,7 @@ class Fighter extends Sprite {
         framesMax = 1,
         offset = { x: 0, y: 0 },
         sprites,
-        attackBox = {offset: {}, width: undefined, height: undefined}
+        attackBox = { offset: {}, width: undefined, height: undefined }
     }) {
         super({ position, imageSrc, scale, framesMax, offset });
         this.velocity = velocity
@@ -66,10 +66,10 @@ class Fighter extends Sprite {
         // }, 1000)
     }
 
-    takeHit() {
+    takeHit(hit) {
         console.log('got hit');
         this.switchSprite('takeHit');
-        this.health -= 5;
+        this.health -= hit;
     }
 
     switchSprite(sprite) {

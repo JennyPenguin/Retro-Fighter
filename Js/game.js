@@ -37,36 +37,36 @@ const player = new Fighter({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/samuraiMack/samuraiMack/Idle.png',
-    framesMax: 8,
-    scale: 2.5,
+    imageSrc: './Assets/HippoAnim/Idle.png',
+    framesMax: 3,
+    scale: 0.7,
     offset: {
-        x: 215,
-        y: 157
+        x: 60.2,
+        y: 43.96
     },
     sprites: {
         idle: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Idle.png',
-            framesMax: 8
+            imageSrc: './Assets/HippoAnim/Idle.png',
+            framesMax: 3
         },
         run: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Run.png',
-            framesMax: 8
+            imageSrc: './Assets/HippoAnim/Right.png',
+            framesMax: 4
         },
         jump: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Jump.png',
+            imageSrc: './Assets/HippoAnim/Jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Fall.png',
+            imageSrc: './Assets/HippoAnim/Fall.png',
             framesMax: 2
         },
         attack1: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Attack1.png',
-            framesMax: 6
+            imageSrc: './Assets/HippoAnim/Fight.png',
+            framesMax: 12
         },
         takeHit: {
-            imageSrc: './Assets/samuraiMack/samuraiMack/Take Hit.png'
+            imageSrc: './Assets/HippoAnim/Idle.png'
         }
     },
     attackBox: {
@@ -91,7 +91,7 @@ const enemy = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: './Assets/kenjiEnemy/Idle.png',
+    imageSrc: './Assets/kenjiEnemy/Octopus.png',
     framesMax: 4,
     scale: 0.5,
     offset: {
@@ -104,24 +104,24 @@ const enemy = new Fighter({
             framesMax: 4
         },
         run: {
-            imageSrc: './Assets/kenjiEnemy/Run.png',
-            framesMax: 8
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            framesMax: 4
         },
         jump: {
-            imageSrc: './Assets/kenjiEnemy/Jump.png',
-            framesMax: 2
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            framesMax: 4
         },
         fall: {
-            imageSrc: './Assets/kenjiEnemy/Fall.png',
-            framesMax: 2
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            framesMax: 4
         },
         attack1: {
-            imageSrc: './Assets/kenjiEnemy/Attack1.png',
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
             framesMax: 4
         },
         takeHit: {
-            imageSrc: './Assets/kenjiEnemy/Take hit.png',
-            framesMax: 3
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            framesMax: 4
         }
     },
     attackBox: {
@@ -197,9 +197,9 @@ function animate() {
     }
 
     // detect for collision & enemy gets hit
-    if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 4) {
+    if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 9) {
         // console.log('got hit');
-        enemy.takeHit();
+        enemy.takeHit(3);
 
         // enemy.health -= 5;
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
@@ -212,7 +212,7 @@ function animate() {
     }
 
     if (rectangularCollision({ rectangle1: enemy, rectangle2: player }) && enemy.isAttacking && enemy.frameCurrent === 2) {
-        player.health -= 5;
+        player.takeHit(1)
         document.querySelector('#playerHealth').style.width = player.health + '%';
         enemy.isAttacking = false;
     }
