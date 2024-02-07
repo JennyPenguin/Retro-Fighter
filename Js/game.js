@@ -12,7 +12,7 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/pixilBg.png'
+    imageSrc: './Assets/bg.png'
 });
 
 const shop = new Sprite({
