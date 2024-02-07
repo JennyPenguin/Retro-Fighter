@@ -71,10 +71,10 @@ const player = new Fighter({
     },
     attackBox: {
         offset: {
-            x: 100,
+            x: 70,
             y: 50
         },
-        width: 160,
+        width: 180,
         height: 50
     }
 })
@@ -93,14 +93,14 @@ const enemy = new Fighter({
     },
     imageSrc: './Assets/kenjiEnemy/Idle.png',
     framesMax: 4,
-    scale: 2.5,
+    scale: 0.5,
     offset: {
-        x: 215,
-        y: 170
+        x: 43,
+        y: 5
     },
     sprites: {
         idle: {
-            imageSrc: './Assets/kenjiEnemy/Idle.png',
+            imageSrc: './Assets/kenjiEnemy/Octopus.png',
             framesMax: 4
         },
         run: {
