@@ -154,7 +154,7 @@ decreaseTimer();
 function animate() {
     // what function I want to loop over and over again
     window.requestAnimationFrame(animate);
-
+    // will have to change later to match current player
     background.update();
     shop.update();
     enemy.update();
