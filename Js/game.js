@@ -12,18 +12,18 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/bg.png'
+    imageSrc: './Assets/Bg.png'
 });
 
-const shop = new Sprite({
-    position: {
-        x: 590,
-        y: 260
-    },
-    imageSrc: './Assets/shop.png',
-    scale: 2.3,
-    framesMax: 6
-});
+// const shop = new Sprite({
+//     position: {
+//         x: 590,
+//         y: 260
+//     },
+//     imageSrc: './Assets/shop.png',
+//     scale: 2.3,
+//     framesMax: 6
+// });
 
 const player = new Fighter({
     position: {
@@ -156,7 +156,7 @@ function animate() {
     window.requestAnimationFrame(animate);
     // will have to change later to match current player
     background.update();
-    shop.update();
+    // shop.update();
     enemy.update();
     player.update();
 
