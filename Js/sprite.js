@@ -41,6 +41,7 @@ class Sprite {
 
     update() {
         this.animateFrames();
+
     }
 }
 

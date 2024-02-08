@@ -16,7 +16,7 @@ function determineWinner({ player, enemy, timerId }) {
     } else if (player.health > enemy.health) {
         document.getElementById("displayText").innerHTML = "Hippo Wins!";
     } else {
-        document.getElementById("displayText").innerHTML = "Octupus Wins!";
+        document.getElementById("displayText").innerHTML = "Octopus Wins!";
     }
 }
 
