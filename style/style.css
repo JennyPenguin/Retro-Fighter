@@ -167,13 +167,13 @@ body {
 }
 
 #game-container {
-    /* position: relative; */
+    position: relative;
     display: inline-block;
 }
 
 canvas {
-    position: absolute;
-    height: 100%;
+    position: relative;
+    height: 100vh;
 }
 
 .bar {
