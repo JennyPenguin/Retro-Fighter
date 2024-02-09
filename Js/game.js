@@ -249,7 +249,7 @@ window.addEventListener('keydown', (event) => {
                 player.lastKey = 'a';
                 break
             case 'w':
-                player.velocity.y = -20;
+                pla yer.velocity.y = -20;
                 break
             case 's':
                 // console.log('got hit');
@@ -257,8 +257,8 @@ window.addEventListener('keydown', (event) => {
                 break
         }
     }
-    if(!enemy.dead) {
-        switch(event.key) {
+    if (!enemy.dead) {
+        switch (event.key) {
             case 'ArrowRight':
                 keys.ArrowRight.pressed = true;
                 enemy.lastKey = 'ArrowRight';
@@ -270,14 +270,14 @@ window.addEventListener('keydown', (event) => {
             case 'ArrowUp':
                 enemy.velocity.y = -20;
                 break
-    
+
             case 'ArrowDown':
                 // console.log('got hit');
                 enemy.attack();
                 break
         }
     }
-    
+
     // animate();
 })
 
