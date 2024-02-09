@@ -15,15 +15,24 @@ const background = new Sprite({
     imageSrc: './Assets/Bg.png'
 });
 
-// const shop = new Sprite({
-//     position: {
-//         x: 590,
-//         y: 260
-//     },
-//     imageSrc: './Assets/shop.png',
-//     scale: 2.3,
-//     framesMax: 6
-// });
+const hole = new Sprite({
+    position: {
+        x: 200,
+        y: 10
+    },
+    imageSrc: './Assets/BlackHole.png',
+    scale: 1.5,
+    framesMax: 12,
+    framesHold: 1000
+});
+
+const ground = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './Assets/Ground.png'
+});
 
 const player = new Fighter({
     position: {
@@ -165,7 +174,8 @@ function animate() {
     window.requestAnimationFrame(animate);
     // will have to change later to match current player
     background.update();
-    // shop.update();
+    hole.update();
+    ground.update();
     enemy.update();
     player.update();
 
@@ -249,7 +259,7 @@ window.addEventListener('keydown', (event) => {
                 player.lastKey = 'a';
                 break
             case 'w':
-                pla yer.velocity.y = -20;
+                player.velocity.y = -20;
                 break
             case 's':
                 // console.log('got hit');

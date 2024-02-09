@@ -5,7 +5,7 @@ class Sprite {
         this.height = 150;
         this.image = new Image();
         this.image.src = imageSrc;
-        this.scale = scale;
+        this.scale = scadle;
         this.framesMax = framesMax;
         this.frameCurrent = 0;
         this.framesElapsed = 0;
