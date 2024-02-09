@@ -114,31 +114,31 @@ const enemy = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './Assets/kenjiEnemy/Octopus_idle.png',
+            imageSrc: './Assets/Octopus/Octopus_idle.png',
             framesMax: 7
         },
         run: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            imageSrc: './Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         jump: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            imageSrc: './Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         fall: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            imageSrc: './Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         attack1: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
-            framesMax: 4
+            imageSrc: './Assets/Octopus/Octopus - attack.png',
+            framesMax: 7
         },
         takeHit: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            imageSrc: './Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         death: {
-            imageSrc: './Assets/kenjiEnemy/Octopus.png',
+            imageSrc: './Assets/Octopus/Octopus.png',
             framesMax: 4
         }
     },
