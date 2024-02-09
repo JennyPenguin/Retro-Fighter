@@ -1,3 +1,6 @@
+let timer = 300;
+let timerId;
+
 function rectangularCollision({ rectangle1, rectangle2 }) {
     return (rectangle1.attackBox.position.x + rectangle1.attackBox.width >=
         rectangle2.position.x &&
@@ -20,8 +23,7 @@ function determineWinner({ player, enemy, timerId }) {
     }
 }
 
-let timer = 300;
-let timerId;
+
 function decreaseTimer() {
     if (timer > 0) {
         timerId = setTimeout(decreaseTimer, 1000)

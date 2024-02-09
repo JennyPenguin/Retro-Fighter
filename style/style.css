@@ -165,3 +165,24 @@ body {
     border-radius: 75px;
     border: 10px solid #fff;
 }
+
+#game-container {
+    display: inline-block;
+}
+
+canvas {
+    position: absolute;
+    height: 100%;
+}
+
+.bar {
+    z-index: 1;
+}
+
+.gameSpace {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
