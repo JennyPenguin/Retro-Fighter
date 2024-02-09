@@ -181,7 +181,8 @@ canvas {
 }
 
 .gameSpace {
-    background: #000;
+    background:
+        #060c0e;
     display: flex;
     justify-content: center;
     align-items: center;
