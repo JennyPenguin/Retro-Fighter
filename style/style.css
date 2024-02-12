@@ -40,7 +40,12 @@ body {
 
 /* text */
 
-
+#displayText {
+    font-size: 250%;
+    padding: 20rem 20rem;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7);
+}
 
 
 /* buttons */
