@@ -97,7 +97,7 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: 'Assets/Bg.png'
+    imageSrc: 'Assets/bg.png'
 });
 
 const hole = new Sprite({
