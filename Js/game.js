@@ -160,7 +160,7 @@ let player = new Fighter({
             framesMax: 12
         },
         takeHit: {
-            imageSrc: 'Assets/HippoAnim/Idle.png',
+            imageSrc: 'Assets/HippoAnim/Hit.png',
             framesMax: 3
         },
         death: {
@@ -221,8 +221,8 @@ let enemy = new Fighter({
             framesMax: 7
         },
         takeHit: {
-            imageSrc: 'Assets/Octopus/Octopus.png',
-            framesMax: 4
+            imageSrc: 'Assets/Octopus/Recoil.png',
+            framesMax: 6
         },
         death: {
             imageSrc: 'Assets/Octopus/Octopus.png',

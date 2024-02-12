@@ -75,8 +75,8 @@ let player = new Fighter({
             framesMax: 12
         },
         takeHit: {
-            imageSrc: 'Assets/HippoAnim/Idle.png',
-            framesMax: 3
+            imageSrc: 'Assets/HippoAnim/Hit.png',
+            framesMax: 5
         },
         death: {
             imageSrc: 'Assets/HippoAnim/Idle.png',
@@ -136,8 +136,8 @@ let enemy = new Fighter({
             framesMax: 7
         },
         takeHit: {
-            imageSrc: 'Assets/Octopus/Octopus.png',
-            framesMax: 4
+            imageSrc: 'Assets/Octopus/Recoil.png',
+            framesMax: 6
         },
         death: {
             imageSrc: 'Assets/Octopus/Octopus.png',
@@ -222,6 +222,7 @@ function animate() {
 
     // detect for collision & enemy gets hit
     if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 9) {
+        enemy.position.x += 100;
         enemy.takeHit(3);
 
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
@@ -234,6 +235,7 @@ function animate() {
     }
 
     if (rectangularCollision({ rectangle1: enemy, rectangle2: player }) && enemy.isAttacking && enemy.frameCurrent === 2) {
+        player.position.x -= 100;
         player.takeHit(3);
 
         document.querySelector('#playerHealth').style.width = player.health + '%';
