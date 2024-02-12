@@ -182,7 +182,7 @@ let player = new Fighter({
 
 let enemy = new Fighter({
     position: {
-        x: 400,
+        x: 800,
         y: 100
     },
     velocity: {
