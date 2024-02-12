@@ -393,8 +393,8 @@ window.addEventListener('keydown', (event) => {
                 break
             case 's':
                 // console.log('got hit');
-                updateKey(["P", 's'])
                 player.attack();
+                updateKey(["P", 's'])
                 break
         }
     }
@@ -417,8 +417,8 @@ window.addEventListener('keydown', (event) => {
 
             case 's':
                 // console.log('got hit');
-                updateKey(["P", 's'])
                 enemy.attack();
+                updateKey(["P", 's'])
                 break
         }
     }
