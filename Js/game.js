@@ -97,7 +97,7 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/Bg.png'
+    imageSrc: '../Assets/Bg.png'
 });
 
 const hole = new Sprite({
@@ -105,7 +105,7 @@ const hole = new Sprite({
         x: 200,
         y: 10
     },
-    imageSrc: './Assets/BlackHole.png',
+    imageSrc: '../Assets/BlackHole.png',
     scale: 1.5,
     framesMax: 12,
     framesHold: 1000
@@ -116,7 +116,7 @@ const ground = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/Ground.png'
+    imageSrc: '../Assets/Ground.png'
 });
 
 let player = new Fighter({
@@ -131,7 +131,7 @@ let player = new Fighter({
         x: 0,
         y: 0
     },
-    imageSrc: './Assets/HippoAnim/Idle.png',
+    imageSrc: '../Assets/HippoAnim/Idle.png',
     framesMax: 3,
     scale: 0.7,
     offset: {
@@ -140,31 +140,31 @@ let player = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './Assets/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         },
         run: {
-            imageSrc: './Assets/HippoAnim/Right.png',
+            imageSrc: '../Assets/HippoAnim/Right.png',
             framesMax: 4
         },
         jump: {
-            imageSrc: './Assets/HippoAnim/Jump.png',
+            imageSrc: '../Assets/HippoAnim/Jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: './Assets/HippoAnim/Fall.png',
+            imageSrc: '../Assets/HippoAnim/Fall.png',
             framesMax: 2
         },
         attack1: {
-            imageSrc: './Assets/HippoAnim/Fight.png',
+            imageSrc: '../Assets/HippoAnim/Fight.png',
             framesMax: 12
         },
         takeHit: {
-            imageSrc: './Assets/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         },
         death: {
-            imageSrc: './Assets/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         }
     },
@@ -192,7 +192,7 @@ let enemy = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: './Assets/Octopus/Octopus_idle.png',
+    imageSrc: '../Assets/Octopus/Octopus_idle.png',
     framesMax: 4,
     scale: 0.5,
     offset: {
@@ -201,31 +201,31 @@ let enemy = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './Assets/Octopus/Octopus_idle.png',
+            imageSrc: '../Assets/Octopus/Octopus_idle.png',
             framesMax: 7
         },
         run: {
-            imageSrc: './Assets/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         jump: {
-            imageSrc: './Assets/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         fall: {
-            imageSrc: './Assets/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         attack1: {
-            imageSrc: './Assets/Octopus/Octopus - attack.png',
+            imageSrc: '../Assets/Octopus/Octopus - attack.png',
             framesMax: 7
         },
         takeHit: {
-            imageSrc: './Assets/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         death: {
-            imageSrc: './Assets/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         }
     },
