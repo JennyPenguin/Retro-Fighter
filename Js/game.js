@@ -343,7 +343,7 @@ function animate() {
 
     // detect for collision & enemy gets hit
     if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 9) {
-        enemy.takeHit(5);
+        enemy.takeHit(3);
 
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
         player.isAttacking = false;
