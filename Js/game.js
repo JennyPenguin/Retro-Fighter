@@ -343,25 +343,25 @@ function animate() {
 
     // detect for collision & enemy gets hit
     if (rectangularCollision({ rectangle1: player, rectangle2: enemy }) && player.isAttacking && player.frameCurrent === 9) {
-        enemy.takeHit(10);
+        enemy.takeHit(5);
 
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
         player.isAttacking = false;
     }
 
     // if a player misses
-    if (player.isAttacking && player.frameCurrent === 4) {
+    if (player.isAttacking && player.frameCurrent === 12) {
         player.isAttacking = false;
     }
 
     if (rectangularCollision({ rectangle1: enemy, rectangle2: player }) && enemy.isAttacking && enemy.frameCurrent === 2) {
-        player.takeHit(5);
+        player.takeHit(3);
 
         document.querySelector('#playerHealth').style.width = player.health + '%';
         enemy.isAttacking = false;
     }
 
-    if (enemy.isAttacking && enemy.frameCurrent === 2) {
+    if (enemy.isAttacking && enemy.frameCurrent === 7) {
         enemy.isAttacking = false;
     }
 
