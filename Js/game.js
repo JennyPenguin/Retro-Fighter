@@ -45,6 +45,35 @@ allPlayersRef.on("value", (snapshot) => {
         if (curr.keyPressed != "" && curr.side != side) {
             mimicKey(curr.keyPressed);
         }
+        /*
+        const cF = curr.fighter;
+        console.log("updated " + curr.side);
+        if (curr.side != side) {
+            if (curr.side == "Player") {
+                player.position = cF.position;
+                player.velocity = cF.velocity;
+                player.isAttacking = cF.isAttacking;
+                player.lastKey = cF.lastKey;
+                player.health = cF.health;
+                player.dead = cF.dead;
+                player.frameCurrent = cF.frameCurrent;
+                player.framesMax = cF.framesMax;
+                player.framesHold = cF.framesHold;
+                player.framesElapsed = cF.framesElapsed;
+            } else {
+                enemy.position = cF.position;
+                enemy.velocity = cF.velocity;
+                enemy.isAttacking = cF.isAttacking;
+                enemy.lastKey = cF.lastKey;
+                enemy.health = cF.health;
+                enemy.dead = cF.dead;
+                enemy.frameCurrent = cF.frameCurrent;
+                enemy.framesMax = cF.framesMax;
+                enemy.framesHold = cF.framesHold;
+                enemy.framesElapsed = cF.framesElapsed;
+            }
+        }
+        */
     })
     // console.log("updated version")
     // console.log(player);
@@ -68,7 +97,7 @@ const background = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: "Asset/Bg.png"
+    imageSrc: '../Assets/Bg.png'
 });
 
 const hole = new Sprite({
@@ -76,7 +105,7 @@ const hole = new Sprite({
         x: 200,
         y: 10
     },
-    imageSrc: 'Asset/BlackHole.png',
+    imageSrc: '../Assets/BlackHole.png',
     scale: 1.5,
     framesMax: 12,
     framesHold: 1000
@@ -87,7 +116,7 @@ const ground = new Sprite({
         x: 0,
         y: 0
     },
-    imageSrc: 'Asset/Ground.png'
+    imageSrc: '../Assets/Ground.png'
 });
 
 let player = new Fighter({
@@ -102,7 +131,7 @@ let player = new Fighter({
         x: 0,
         y: 0
     },
-    imageSrc: 'Asset/HippoAnim/Idle.png',
+    imageSrc: '../Assets/HippoAnim/Idle.png',
     framesMax: 3,
     scale: 0.7,
     offset: {
@@ -111,31 +140,31 @@ let player = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: 'Asset/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         },
         run: {
-            imageSrc: 'Asset/HippoAnim/Right.png',
+            imageSrc: '../Assets/HippoAnim/Right.png',
             framesMax: 4
         },
         jump: {
-            imageSrc: 'Asset/HippoAnim/Jump.png',
+            imageSrc: '../Assets/HippoAnim/Jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: 'Asset/HippoAnim/Fall.png',
+            imageSrc: '../Assets/HippoAnim/Fall.png',
             framesMax: 2
         },
         attack1: {
-            imageSrc: 'Asset/HippoAnim/Fight.png',
+            imageSrc: '../Assets/HippoAnim/Fight.png',
             framesMax: 12
         },
         takeHit: {
-            imageSrc: 'Asset/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         },
         death: {
-            imageSrc: 'Asset/HippoAnim/Idle.png',
+            imageSrc: '../Assets/HippoAnim/Idle.png',
             framesMax: 3
         }
     },
@@ -163,7 +192,7 @@ let enemy = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: 'Asset/Octopus/Octopus_idle.png',
+    imageSrc: '../Assets/Octopus/Octopus_idle.png',
     framesMax: 4,
     scale: 0.5,
     offset: {
@@ -172,31 +201,31 @@ let enemy = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: 'Asset/Octopus/Octopus_idle.png',
+            imageSrc: '../Assets/Octopus/Octopus_idle.png',
             framesMax: 7
         },
         run: {
-            imageSrc: 'Asset/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         jump: {
-            imageSrc: 'Asset/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         fall: {
-            imageSrc: 'Asset/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         attack1: {
-            imageSrc: 'Asset/Octopus/Octopus - attack.png',
+            imageSrc: '../Assets/Octopus/Octopus - attack.png',
             framesMax: 7
         },
         takeHit: {
-            imageSrc: 'Asset/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         },
         death: {
-            imageSrc: 'Asset/Octopus/Octopus.png',
+            imageSrc: '../Assets/Octopus/Octopus.png',
             framesMax: 4
         }
     },
@@ -492,5 +521,4 @@ function mimicKey(code) {
             }
         }
     }
-    animate();
 }
