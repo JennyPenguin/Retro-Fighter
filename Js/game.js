@@ -1,5 +1,90 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
+const roomId = sessionStorage.getItem("roomId");
+const playerId = sessionStorage.getItem("playerId");
+const playerRef = firebase.database().ref(`${roomId}/players/${playerId}`);
+const allPlayersRef = firebase.database().ref(`${roomId}/players`);
+const side = sessionStorage.getItem("side");
+const pName = sessionStorage.getItem("name");
+
+playerRef.set({
+    id: playerId,
+    pName,
+    score: 0,
+    side,
+    keyPressed: "",
+    fighter: {
+        position: {
+            x: 0,
+            y: 0
+        },
+        velocity: {
+            x: 0,
+            y: 0
+        },
+        isAttacking: false,
+        lastKey: ""
+
+    },
+})
+
+function updateKey(k) {
+    playerRef.update({
+        keyPressed: k
+    })
+}
+
+
+// callback when value of players changes 
+allPlayersRef.on("value", (snapshot) => {
+    // fires whenever a change occurs
+    players = snapshot.val() || {};
+    Object.keys(players).forEach((key) => {
+        const curr = players[key];
+        console.log(curr);
+        if (curr.keyPressed != "" && curr.side != side) {
+            mimicKey(curr.keyPressed);
+        }
+        /*
+        const cF = curr.fighter;
+        console.log("updated " + curr.side);
+        if (curr.side != side) {
+            if (curr.side == "Player") {
+                player.position = cF.position;
+                player.velocity = cF.velocity;
+                player.isAttacking = cF.isAttacking;
+                player.lastKey = cF.lastKey;
+                player.health = cF.health;
+                player.dead = cF.dead;
+                player.frameCurrent = cF.frameCurrent;
+                player.framesMax = cF.framesMax;
+                player.framesHold = cF.framesHold;
+                player.framesElapsed = cF.framesElapsed;
+            } else {
+                enemy.position = cF.position;
+                enemy.velocity = cF.velocity;
+                enemy.isAttacking = cF.isAttacking;
+                enemy.lastKey = cF.lastKey;
+                enemy.health = cF.health;
+                enemy.dead = cF.dead;
+                enemy.frameCurrent = cF.frameCurrent;
+                enemy.framesMax = cF.framesMax;
+                enemy.framesHold = cF.framesHold;
+                enemy.framesElapsed = cF.framesElapsed;
+            }
+        }
+        */
+    })
+    // console.log("updated version")
+    // console.log(player);
+    // console.log(enemy);
+})
+
+
+//Remove me from Firebase when I diconnect
+playerRef.onDisconnect().remove();
+console.log(playerRef);
+console.log(playerId);
 
 canvas.width = 1000;
 canvas.height = 570;
@@ -34,7 +119,7 @@ const ground = new Sprite({
     imageSrc: './Assets/Ground.png'
 });
 
-const player = new Fighter({
+let player = new Fighter({
     position: {
         x: 0,
         y: 0
@@ -93,7 +178,9 @@ const player = new Fighter({
     }
 })
 
-const enemy = new Fighter({
+
+
+let enemy = new Fighter({
     position: {
         x: 400,
         y: 100
@@ -105,7 +192,7 @@ const enemy = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: './Assets/kenjiEnemy/Octopus.png',
+    imageSrc: './Assets/Octopus/Octopus_idle.png',
     framesMax: 4,
     scale: 0.5,
     offset: {
@@ -152,6 +239,7 @@ const enemy = new Fighter({
     }
 })
 
+
 const keys = {
     a: {
         pressed: false
@@ -166,6 +254,44 @@ const keys = {
         pressed: false
     }
 }
+/*
+updateP();
+
+function updateP() {
+    if (side == "Player") {
+        playerRef.update({
+            fighter: {
+                position: player.position,
+                velocity: player.velocity,
+                isAttacking: player.isAttacking,
+                lastKey: player.lastKey,
+                // health: player.health,
+                // dead: player.dead,
+                // frameCurrent: player.frameCurrent,
+                // framesMax: player.framesMax,
+                // framesHold: player.framesHold,
+                // framesElapsed: player.framesElapsed
+            }
+        })
+    } else {
+        playerRef.update({
+            fighter: {
+                position: enemy.position,
+                velocity: enemy.velocity,
+                isAttacking: enemy.isAttacking,
+                lastKey: enemy.lastKey,
+                // health: enemy.health,
+                // dead: enemy.dead,
+                // frameCurrent: enemy.frameCurrent,
+                // framesMax: enemy.framesMax,
+                // framesHold: enemy.framesHold,
+                // framesElapsed: enemy.framesElapsed
+            }
+        })
+    }
+}
+*/
+
 
 decreaseTimer();
 
@@ -243,72 +369,156 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0) {
         determineWinner({ player, enemy, timerId });
     }
+    // updateP();
 }
 animate()
 
 window.addEventListener('keydown', (event) => {
-    if (!player.dead) {
+    if (!player.dead && side == "Player") {
 
         switch (event.key) {
             case 'd':
                 keys.d.pressed = true;
                 player.lastKey = 'd';
+                updateKey(["P", 'd'])
                 break
             case 'a':
                 keys.a.pressed = true;
                 player.lastKey = 'a';
+                updateKey(["P", 'a'])
                 break
             case 'w':
                 player.velocity.y = -20;
+                updateKey(["P", 'w'])
                 break
             case 's':
                 // console.log('got hit');
+                updateKey(["P", 's'])
                 player.attack();
                 break
         }
     }
-    if (!enemy.dead) {
+    else if (!enemy.dead && side == "Enemy") {
         switch (event.key) {
-            case 'ArrowRight':
+            case 'd':
                 keys.ArrowRight.pressed = true;
                 enemy.lastKey = 'ArrowRight';
+                updateKey(["P", 'd'])
                 break
-            case 'ArrowLeft':
+            case 'a':
                 keys.ArrowLeft.pressed = true;
                 enemy.lastKey = 'ArrowLeft';
+                updateKey(["P", 'a'])
                 break
-            case 'ArrowUp':
+            case 'w':
                 enemy.velocity.y = -20;
+                updateKey(["P", 'w'])
                 break
 
-            case 'ArrowDown':
+            case 's':
                 // console.log('got hit');
+                updateKey(["P", 's'])
                 enemy.attack();
                 break
         }
     }
-
+    // updateP();
     // animate();
 })
 
 
 window.addEventListener('keyup', (event) => {
-    switch (event.key) {
-        case 'd':
-            keys.d.pressed = false;
-            break
-        case 'a':
-            keys.a.pressed = false;
-            break
-    }
+    if (side == "Player") {
+        switch (event.key) {
+            case 'd':
+                keys.d.pressed = false;
+                updateKey(["U", "d"]);
+                break
+            case 'a':
+                keys.a.pressed = false;
+                updateKey(["U", "a"]);
+                break
+        }
+    } else {
 
-    // enemy keys
-    switch (event.key) {
-        case 'ArrowRight':
-            keys.ArrowRight.pressed = false;
-            break
-        case 'ArrowLeft':
-            keys.ArrowLeft.pressed = false;
-            break
+        // enemy keys
+        switch (event.key) {
+            case 'd':
+                keys.ArrowRight.pressed = false;
+                updateKey(["U", "d"]);
+                break
+            case 'a':
+                keys.ArrowLeft.pressed = false;
+                updateKey(["U", "a"]);
+                break
+        }
     }
+    // updateP();
 })
+
+function mimicKey(code) {
+    // key pressed
+    if (code[0] == "P") {
+        if (!player.dead && side != "Player") {
+            switch (code[1]) {
+                case 'd':
+                    keys.d.pressed = true;
+                    player.lastKey = 'd';
+                    break
+                case 'a':
+                    keys.a.pressed = true;
+                    player.lastKey = 'a';
+                    break
+                case 'w':
+                    player.velocity.y = -20;
+                    break
+                case 's':
+                    // console.log('got hit');
+                    player.attack();
+                    break
+            }
+        }
+        else if (!enemy.dead && side != "Enemy") {
+            switch (code[1]) {
+                case 'd':
+                    keys.ArrowRight.pressed = true;
+                    enemy.lastKey = 'ArrowRight';
+                    break
+                case 'a':
+                    keys.ArrowLeft.pressed = true;
+                    enemy.lastKey = 'ArrowLeft';
+                    break
+                case 'w':
+                    enemy.velocity.y = -20;
+                    break
+
+                case 's':
+                    // console.log('got hit');
+                    enemy.attack();
+                    break
+            }
+        }
+    } else {
+
+        // key up
+        if (side != "Player") {
+            switch (code[1]) {
+                case 'd':
+                    keys.d.pressed = false;
+                    break
+                case 'a':
+                    keys.a.pressed = false;
+                    break
+            }
+        } else {
+            switch (code[1]) {
+                case 'd':
+                    keys.ArrowRight.pressed = false;
+                    break
+                case 'a':
+                    keys.ArrowLeft.pressed = false;
+                    break
+            }
+        }
+    }
+}

@@ -70,6 +70,8 @@ class Fighter extends Sprite {
         // }, 1000)
     }
 
+
+
     takeHit(hit) {
         console.log('got hit');
         this.health -= hit;
@@ -85,14 +87,15 @@ class Fighter extends Sprite {
     switchSprite(sprite) {
         if (this.image === this.sprites.death.image) {
             if (this.frameCurrent === this.sprites.death.framesMax - 1) this.dead = true;
-            return}
+            return
+        }
         // if attacking and not finished playing, don't let other animations play
         if (this.image === this.sprites.attack1.image &&
             this.frameCurrent < this.sprites.attack1.framesMax - 1) return
 
         // override when fighter gets hit
 
-        if(this.image == this.sprites.takeHit.image && this.frameCurrent < this.sprites.takeHit.framesMax - 1) return
+        if (this.image == this.sprites.takeHit.image && this.frameCurrent < this.sprites.takeHit.framesMax - 1) return
 
         switch (sprite) {
             case 'idle':

@@ -1,3 +1,10 @@
+let playerId;
+let playerRef;
+let allPlayersRef;
+let roomId;
+let players;
+let pName;
+
 function getName() {
     const n = document.getElementById("nameInput").value;
     initializeData(n, -1);
@@ -14,6 +21,17 @@ function enterRoom() {
 }
 
 function initGame() {
+    if (document.getElementById("identifier").innerHTML == "Enemy") {
+        playerRef.update({
+            side: "Enemy"
+        })
+        sessionStorage.setItem("side", "Enemy");
+    } else {
+        sessionStorage.setItem("side", "Player");
+    }
+    sessionStorage.setItem("roomId", roomId);
+    sessionStorage.setItem("playerId", playerId);
+    sessionStorage.setItem("name", pName);
     window.location.href = "./game.html";
 }
 
@@ -25,13 +43,8 @@ function showCode(roomId) {
 
 
 function initializeData(name, room) {
+    pName = name;
     console.log(room);
-    let playerId;
-    let playerRef;
-    let allPlayersRef;
-    let roomId;
-    let players;
-
     firebase.auth().onAuthStateChanged((user) => {
         console.log(user)
         if (user) {
@@ -50,9 +63,9 @@ function initializeData(name, room) {
 
             playerRef.set({
                 id: playerId,
-                name,
-                direction: "right",
+                pName,
                 score: 0,
+                keyPressed: []
             })
 
             console.log(allPlayersRef);
@@ -70,9 +83,6 @@ function initializeData(name, room) {
                         }
                     });
             })
-
-            //Remove me from Firebase when I diconnect
-            playerRef.onDisconnect().remove();
 
         } else {
             //You're logged out.
