@@ -75,8 +75,8 @@ let player = new Fighter({
             framesMax: 12
         },
         takeHit: {
-            imageSrc: 'Assets/HippoAnim/Idle.png',
-            framesMax: 3
+            imageSrc: 'Assets/HippoAnim/Hit.png',
+            framesMax: 5
         },
         death: {
             imageSrc: 'Assets/HippoAnim/Idle.png',
